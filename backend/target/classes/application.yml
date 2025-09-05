@@ -1,0 +1,90 @@
+api:
+  cache:
+    enabled: true
+  cors:
+    origins: ${API_CORS_ORIGINS:*}
+
+spring:
+  application:
+    name: fintra-stock-trading
+
+  datasource:
+    url: jdbc:sqlserver://${DB_HOST}:${DB_PORT};databaseName=${DB_NAME};encrypt=false;trustServerCertificate=true
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+        format_sql: true
+        batch_size: 100
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 200
+    show-sql: false
+
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT}
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+  cache:
+    type: simple
+
+  config:
+    import:
+      - optional:dotenv:./.env
+      - classpath:/config/redis/redis.yml
+      - classpath:/config/kafka/kafka.yml
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: ${JWT_EXPIRATION}
+
+server:
+  port: ${SERVER_PORT}
+
+app:
+  version: ${APP_VERSION:1.0.0}
+  description: ${APP_DESCRIPTION:REST API for Fintra Stock Trading Platform - A comprehensive financial trading platform with JWT authentication, password reset functionality, and email notifications}
+  contact:
+    name: ${APP_CONTACT_NAME:Fintra Development Team}
+    email: ${APP_CONTACT_EMAIL:dev@fintra.com.tr}
+    url: ${APP_CONTACT_URL:https://fintra.com.tr}
+  license:
+    name: ${APP_LICENSE_NAME:MIT License}
+    url: ${APP_LICENSE_URL:https://opensource.org/licenses/MIT}
+  email:
+    from: ${APP_EMAIL_FROM:noreply@fintra.com.tr}
+    password-reset:
+      subject: ${APP_EMAIL_PASSWORD_RESET_SUBJECT:Fintra Stock Trading - Password Reset}
+      template: ${APP_EMAIL_PASSWORD_RESET_TEMPLATE:password-reset}
+  password-reset:
+    token-expiration-minutes: ${APP_PASSWORD_RESET_TOKEN_EXPIRATION_MINUTES:15}
+
+logging:
+  level:
+    root: INFO
+    com.fintra.stocktrading: INFO
+    org.springframework.security: WARN
+    org.hibernate.SQL: OFF
+    org.hibernate.tool.schema: WARN
+  file:
+    name: ./logs/fintra-stock-trading.log
+    max-size: 100MB
+    max-history: 30
+
+springdoc:
+  swagger-ui:
+    filter: true
+    persistAuthorization: true
