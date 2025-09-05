@@ -1,0 +1,32 @@
+{
+  "common": {
+    "login": "Login",
+    "signup": "Sign up",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "loginToAccount": "Login to your account",
+    "enterEmail": "Enter your email below to login to your account",
+    "dontHaveAccount": "Don't have an account?",
+    "dashboard": "Dashboard",
+    "quickCreate": "Quick Create",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "forgotPassword": {
+    "title": "Forgot Password",
+    "description": "Enter your email below to reset your password",
+    "sendCode": "Send Code"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete"
+  },
+  "errors": {
+    "required": "This field is required",
+    "invalidEmail": "Please enter a valid email address",
+    "passwordMismatch": "Passwords do not match"
+  }
+}

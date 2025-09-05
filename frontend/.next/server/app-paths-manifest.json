@@ -1,0 +1,14 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/buy-sell/order-history/page": "app/buy-sell/order-history/page.js",
+  "/buy-sell/quick-buy-sell/page": "app/buy-sell/quick-buy-sell/page.js",
+  "/customers/page": "app/customers/page.js",
+  "/employees/page": "app/employees/page.js",
+  "/forgot-password/page": "app/forgot-password/page.js",
+  "/home-page/page": "app/home-page/page.js",
+  "/login/page": "app/login/page.js",
+  "/operational/cash-transfers/page": "app/operational/cash-transfers/page.js",
+  "/operational/end-of-day/page": "app/operational/end-of-day/page.js",
+  "/operational/stock-transfers/page": "app/operational/stock-transfers/page.js",
+  "/reports/page": "app/reports/page.js"
+}

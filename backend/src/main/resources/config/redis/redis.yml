@@ -1,0 +1,13 @@
+api:
+  redis:
+    enabled: true
+
+spring:
+  cache:
+    type: redis
+
+  data:
+    redis:
+      url: ${REDIS_URL:redis://localhost:6379}
+      connect-timeout: 1s
+      timeout: 1s
